@@ -38,3 +38,10 @@ function сheckPassword($login, $password) {
         return false;
     }
 }
+
+/*Задание 2. Добавьте функцию getCurrentUser()
+которая возвращает либо имя вошедшего на сайт пользователя, либо null */
+
+function getCurrentUser(){
+
+}
