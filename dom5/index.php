@@ -42,7 +42,7 @@ If (isset($_SESSION['CurrentUserName'])){?>
 }
 
 
-If (isset($_POST['login'],$_POST['password'])){
+/*If (isset($_POST['login'],$_POST['password'])){
     $login = $_POST['login'];
     If (checkPassword($login,$_POST['password'])){
 
@@ -51,7 +51,7 @@ If (isset($_POST['login'],$_POST['password'])){
         echo 'Неверный пароль или имя пользователя';
         $_SESSION['CurrentUserName'] = null;
     }
-}
+}*/
 ?>
 
 
