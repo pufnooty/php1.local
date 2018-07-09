@@ -44,7 +44,7 @@ If (isset($_SESSION['CurrentUserName'])){?>
 
 If (isset($_POST['login'],$_POST['password'])){
     $login = $_POST['login'];
-    If (сheckPassword($login,$_POST['password'])){
+    If (checkPassword($login,$_POST['password'])){
 
         $_SESSION['CurrentUserName'] = $login;
     }else{
