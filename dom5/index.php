@@ -1,5 +1,7 @@
 <?php
-session_start();
+if (session_id() == '') {
+    session_start();
+}
 ?>
 <html>
 <head>
@@ -40,20 +42,7 @@ If (isset($_SESSION['CurrentUserName'])){?>
     <p><a href="/dom5/login.php">Перейти на страницу авторизации - login.php</a></p>
 <?php
 }
-
-
-/*If (isset($_POST['login'],$_POST['password'])){
-    $login = $_POST['login'];
-    If (checkPassword($login,$_POST['password'])){
-
-        $_SESSION['CurrentUserName'] = $login;
-    }else{
-        echo 'Неверный пароль или имя пользователя';
-        $_SESSION['CurrentUserName'] = null;
-    }
-}*/
 ?>
-
 
 <hr>
 <p>Задание 4.Модифицируйте ваш проект: позволяйте загружать изображения в галерею только авторизованным пользователям,
