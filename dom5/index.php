@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <html>
 <head>
     <title>Домашняя работа 5</title>
@@ -15,17 +18,61 @@
 
 include (__DIR__.'/functions.php');
 
-/*echo password_hash('BHBH2',PASSWORD_DEFAULT) . '<br>';
-echo password_hash('cnukauk',PASSWORD_DEFAULT) . '<br>';
-echo password_hash('nu23gfmkz',PASSWORD_DEFAULT) . '<br>';*/
-
 ?>
-
+<hr>
 <p>Задание 2. Добавьте функцию getCurrentUser() которая возвращает либо имя вошедшего на сайт пользователя, либо null </p>
+
+<hr>
 <p>Задание 3. Добавьте к проекту страничку login.php, которая:
 <ol>
     <li>ЕСЛИ пользователь уже вошел (см. пункт 2), ТО редирект на главную страницу</li>
     <li>ЕСЛИ пользователь не вошел - отображает форму входа</li>
-    ЕСЛИ введены данные в форму входа - проверяем им (см. пункт 1.3) и ЕСЛИ проверка прошла, ТО запоминаем информацию о вошедшем пользователе
-    Модифицируйте ваш проект: позволяйте загружать изображения в галерею только авторизованным пользователям, ведите лог (запись в файл) с данными: кто, когда и какое изображение загрузил</p>
-<ol>
+    <li>ЕСЛИ введены данные в форму входа - проверяем им (см. пункт 1.3) и ЕСЛИ проверка прошла, ТО запоминаем информацию о вошедшем пользователе</li>
+</ol>
+<?php
+If (isset($_SESSION['CurrentUserName'])){?>
+
+    <p>Текущий пользователь: <?php echo $_SESSION['CurrentUserName'];?></p>
+
+    <?php
+}else{
+    ?>
+    <p><a href="/dom5/login.php">Перейти на страницу авторизации - login.php</a></p>
+<?php
+}
+
+
+If (isset($_POST['login'],$_POST['password'])){
+    $login = $_POST['login'];
+    If (сheckPassword($login,$_POST['password'])){
+
+        $_SESSION['CurrentUserName'] = $login;
+    }else{
+        echo 'Неверный пароль или имя пользователя';
+        $_SESSION['CurrentUserName'] = null;
+    }
+}
+?>
+
+
+<hr>
+<p>Задание 4.Модифицируйте ваш проект: позволяйте загружать изображения в галерею только авторизованным пользователям,
+    ведите лог (запись в файл) с данными: кто, когда и какое изображение загрузил</p>
+
+<p>
+ФОТОГАЛЕРЕЯ
+</p>
+
+<?php
+$galleryfiles = scandir(__DIR__.'/gallery');
+$galleryfiles = array_diff($galleryfiles,['.','..']);
+foreach ($galleryfiles as $index => $file) {
+    ?>
+    <a href="/dom5/gallery/<?php echo $file; ?>"><img src="/dom5/gallery/<?php echo $file; ?>" height="200"></a>
+<?php }
+?>
+<p> Загрузка изображения: </p>
+<form action="/dom5/upload.php" method="post" enctype="multipart/form-data">
+    <input type="file" name="nextimage">
+    <button type="submit">Загрузить...</button>
+</form>

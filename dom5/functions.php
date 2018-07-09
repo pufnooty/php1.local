@@ -8,7 +8,7 @@ function getUsersList() {
 $users = [
     'user1' => '$2y$10$A2d8VV933kEy/XVJ19nfQO9uaJtTBtEVkiy8ATYN459Mg7IlMX9Hi',
     'Ivan' => '$2y$10$DAyyeTSTa1qWq6a/N5OTp.1YH7NxkD0vzuUELMNgjv6GAF9cs1f/S',
-    'totoro' => '$2y$10$0Bm0QxVCofqQt6ppnVbq3.iL8SFgBs2GBEFdrAMIwZ3YnRXuTCe/i'
+    'totoro' => '$2y$10$QKAuRT9vHlprgdFCGKt3pO5s9rjIE3RwHwbkTeHThTYcsOjYp5FXS'
 ];
 
 return $users;
@@ -43,5 +43,10 @@ function сheckPassword($login, $password) {
 которая возвращает либо имя вошедшего на сайт пользователя, либо null */
 
 function getCurrentUser(){
+    session_start();
 
+    If (isset($_SESSION['CurrentUserName'])){
+    return $_SESSION['CurrentUserName'];
+    }
+    return null;
 }
