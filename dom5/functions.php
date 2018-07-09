@@ -28,7 +28,7 @@ assert (existsUser('totoro'));
 когда существует пользователь с указанным логином и введенный им пароль прошел проверки
 */
 
-function сheckPassword($login, $password) {
+function checkPassword($login, $password) {
 
     $usersarray = getUsersList();
 
