@@ -18,7 +18,7 @@ if (session_id() == '') {
 
 <?php
 
-include (__DIR__.'/functions.php');
+include __DIR__.'/functions.php';
 
 ?>
 <hr>

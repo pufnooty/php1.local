@@ -49,7 +49,7 @@ function getCurrentUser(){
     }
 
     If (isset($_SESSION['CurrentUserName'])){
-    return $_SESSION['CurrentUserName'];
+        return $_SESSION['CurrentUserName'];
     }
     return null;
 }
