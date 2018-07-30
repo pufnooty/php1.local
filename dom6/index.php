@@ -7,7 +7,7 @@
 <p>
 <?php
 
-require (__DIR__. '/class.php');
+require (__DIR__. '/guestbook.php');
 
 $guestbook = new GuestBook('/guestbook.txt');
 
