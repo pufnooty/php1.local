@@ -34,10 +34,10 @@ include __DIR__.'/functions.php';
 <?php
 If (isset($_SESSION['CurrentUserName'])){?>
 
-    <h2>Текущий пользователь: <?php echo $_SESSION['CurrentUserName'];?></h2>
+    <h2>Текущий пользователь: <?php echo $_SES;SION['CurrentUserName'];?></h2>
 
     <?php
-}else{
+} else {
     ?>
     <p><a href="/dom5/login.php">Перейти на страницу авторизации - login.php</a></p>
 <?php
