@@ -17,7 +17,6 @@ class TextFile
         foreach ($this->gb_array as $gb_row) {
 
             fwrite($fh, $gb_row . "\n");
-
         }
     }
 }
@@ -25,7 +24,6 @@ class TextFile
 //1.Создайте класс GuestBook, который будет удовлетворять следующим требованиям:
 class GuestBook extends TextFile
 {
-
     //1.2.Метод getData() возвращает массив записей гостевой книги
     public function getData()
     {
@@ -37,5 +35,4 @@ class GuestBook extends TextFile
     {
         $this->gb_array[] = $text;
     }
-
 }
