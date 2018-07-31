@@ -15,10 +15,8 @@ class Uploader
     public function isUploaded()
     {
         if (isset($_FILES[$this->fieldename])) {
-            if (('image/jpeg' == $_FILES[$this->fieldename]['type']) || ('image/png' == $_FILES[$this->fieldename]['type'])) {
-                if (0 == $_FILES[$this->fieldename]['error']) {
+            if (0 == $_FILES[$this->fieldename]['error']) {
                     return true;
-                }
             }
         }
         return false;
@@ -28,7 +26,7 @@ class Uploader
     {
         if ($this->isUploaded()) {
             move_uploaded_file($_FILES[$this->fieldename]['tmp_name'],
-                __DIR__ . '/gallery/' .$_FILES[$this->fieldename]['name']);
+                __DIR__ . '/files/' .$_FILES[$this->fieldename]['name']);
         } else {
             echo 'Файл не был загружен!';
         }
