@@ -26,7 +26,7 @@ class Uploader
     {
         if ($this->isUploaded()) {
             move_uploaded_file($_FILES[$this->fieldename]['tmp_name'],
-                __DIR__ . '/files/' .$_FILES[$this->fieldename]['name']);
+                __DIR__ . '/../files/' .$_FILES[$this->fieldename]['name']);
         } else {
             echo 'Файл не был загружен!';
         }
